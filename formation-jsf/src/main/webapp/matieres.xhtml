@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Liste des matières</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Liste des matières" />
+	</h2>
+	<p:panel header="basic">
+	<h:form id="formulaire">
+		<p:dataTable value="#{matiereBean.matieres}" var="matiere">
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['matieres.headers.code']}" />
+				</f:facet>
+				<h:outputText value="#{matiere.code}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['matieres.headers.intitule']}" />
+				</f:facet>
+				<h:outputText value="#{matiere.intitule}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['matieres.headers.durée']}" />
+				</f:facet>
+				<h:outputText value="#{matiere.durée}" />
+			</p:column>
+			
+ 			<p:column> 
+ 				<h:commandButton value="Modifier" action="#{matiereBean.edit}" ajax="false"> 
+ 					<f:setPropertyActionListener target="#{matiereBean.matiereCode}"
+						value="#{matiere.code}" /> 
+				</h:commandButton> 
+			</p:column> 
+			
+ 			<p:column> 
+ 				<h:commandButton value="Supprimer" action="#{matiereBean.delete}" ajax="false"> 
+ 					<f:setPropertyActionListener target="#{matiereBean.matiereCode}" 
+						value="#{matiere.code}" /> 
+				</h:commandButton>
+			</p:column> 
+			
+		</p:dataTable>
+		
+		<h:commandButton value="Ajouter" action="#{matiereBean.add}" ajax="false" /> 
+	</h:form>
+	</p:panel>
+</h:body>
+</html>
+
+
+

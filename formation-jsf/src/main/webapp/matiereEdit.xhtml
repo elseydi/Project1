@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Edition de la matière" />
+	</h2>
+	<h:form id="formulaire">
+		<h:inputHidden id="code" value="#{matiereBean.currentMatiere.code}"/>
+		<h:inputHidden id="version" value="#{matiereBean.currentMatiere.version}"/>
+		<h:messages globalOnly="true" />
+		<h:panelGrid columns="3" border="1">
+			<!-- entête -->
+			<h:outputText value="Libellé" styleClass="entete" />
+			<h:outputText value="Champs" styleClass="entete" />
+			<h:outputText value="Erreur" styleClass="entete" />
+			<!-- ligne 1 -->
+			
+			
+			<h:outputText value="Nom :" />
+			<h:inputText id="nom" value="#{matiereBean.currentMatiere.intitule}" required="true"   requiredMessage="Données obligatoire" validatorMessage="Le nom doit commencer par une lettre majuscule ">
+			<f:validateRegex pattern="^[A-Z][A-Za-z0-9]{3,}"></f:validateRegex> </h:inputText>
+			<h:message for="nom" />
+			<!-- ligne 2 -->
+			<h:outputText value="Durée :" />
+			<h:inputText id="duree" value="#{matiereBean.currentMatiere.durée}" required="true" requiredMessage="Données obligatoire"/>
+			<h:message for="duree" />
+		</h:panelGrid>
+		<!-- boutons de commande -->
+		<h:panelGrid columns="2">
+			<h:commandButton value="Valider" action="#{matiereBean.save}" ajax="false"/>
+			<h:commandButton value="Annuler" immediate="false" action="#{matiereBean.cancel}" onclick="raz()" ajax="false"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
