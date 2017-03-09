@@ -11,9 +11,15 @@
 
         <properties>
 <!-- Pilote de connexion à la BDD -->
+<<<<<<< HEAD
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
 <!-- Url de connexion             -->
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/voyage"/>
+=======
+            <property name="hibernttttttttttttttttttr_class" value="org.postgresql.Driver"/>
+<!-- Url de connexion             -->
+            <property name="hibernatttttttttttttttttttttl" value="jdbc:postgresql://localhost:5432/voyage"/>
+>>>>>>> develop
 <!-- Utilisateur de connexion     -->
             <property name="hibernate.connection.username" value="postgres"/>
 <!-- Mot de passe             -->
@@ -26,4 +32,8 @@
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
+<<<<<<< HEAD
 </persistence>
+=======
+</persistence>
+>>>>>>> develop
