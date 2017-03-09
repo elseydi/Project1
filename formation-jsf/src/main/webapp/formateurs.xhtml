@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Liste des formateurs</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Liste des formateurs" />
+	</h2>
+	<p:panel header="basic">
+	<h:form id="formulaire">
+		<p:dataTable value="#{formateurBean.formateurs}" var="formateur">
+		<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['formateurs.headers.cout']}" />
+				</f:facet>
+				<h:outputText value="#{formateur.cout}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['formateurs.headers.nom']}" />
+				</f:facet>
+				<h:outputText value="#{formateur.nom}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['formateurs.headers.prenom']}" />
+				</f:facet>
+				<h:outputText value="#{formateur.prenom}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['formateurs.headers.dateNaissance']}" />
+				</f:facet>
+				<h:outputText value="#{formateur.dateNaissance}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['formateurs.headers.civilite']}" />
+				</f:facet>
+				<h:outputText value="#{formateur.civilite}" />
+			</p:column>
+			
+ 			<p:column> 
+ 				<h:commandButton value="Modifier" action="#{formateurBean.edit}" ajax="false"> 
+ 					<f:setPropertyActionListener target="#{formateurBean.formateurCode}"
+						value="#{formateur.code}" /> 
+				</h:commandButton> 
+			</p:column> 
+			
+ 			<p:column> 
+ 				<h:commandButton value="Supprimer" action="#{formateurBean.delete}" ajax="false"> 
+ 					<f:setPropertyActionListener target="#{formateurBean.formateurCode}" 
+						value="#{formateur.code}" /> 
+				</h:commandButton>
+			</p:column> 
+			
+		</p:dataTable>
+		
+		<h:commandButton value="Ajouter" action="#{formateurBean.add}" ajax="false" /> 
+	</h:form>
+	</p:panel>
+</h:body>
+</html>
+
+
+
